@@ -1,0 +1,362 @@
+[
+    {
+        "id": 1,
+        "ranking_malaga": 111,
+        "nombre": "MARIA DEL ROCIO",
+        "apellidos": "MARTINEZ GUERRA",
+        "puntos": 63281.25,
+        "ganados": 6,
+        "perdidos": 0,
+        "jugados": 6
+    },
+    {
+        "id": 2,
+        "ranking_malaga": 90,
+        "nombre": "MARINA",
+        "apellidos": "CUENCA BUENO",
+        "puntos": 66718.75,
+        "ganados": 5,
+        "perdidos": 0,
+        "jugados": 5
+    },
+    {
+        "id": 3,
+        "ranking_malaga": 85,
+        "nombre": "BEATRIZ",
+        "apellidos": "CABELLO RODRIGUEZ",
+        "puntos": 67421.88,
+        "ganados": 7,
+        "perdidos": 3,
+        "jugados": 10
+    },
+    {
+        "id": 4,
+        "ranking_malaga": 225,
+        "nombre": "ROCIO",
+        "apellidos": "LEON RODRIGUEZ",
+        "puntos": 52031.25,
+        "ganados": 5,
+        "perdidos": 1,
+        "jugados": 6
+    },
+    {
+        "id": 5,
+        "ranking_malaga": 310,
+        "nombre": "PENELOPE",
+        "apellidos": "CORTES SIERRA",
+        "puntos": 44687.5,
+        "ganados": 4,
+        "perdidos": 0,
+        "jugados": 4
+    },
+    {
+        "id": 6,
+        "ranking_malaga": 98,
+        "nombre": "NATALIA",
+        "apellidos": "PAULETE SERRANO",
+        "puntos": 65089.29,
+        "ganados": 6,
+        "perdidos": 3,
+        "jugados": 9
+    },
+    {
+        "id": 7,
+        "ranking_malaga": 299,
+        "nombre": "LUCIA",
+        "apellidos": "ALCAZAR EXPOSITO",
+        "puntos": 45468.75,
+        "ganados": 3,
+        "perdidos": 0,
+        "jugados": 3
+    },
+    {
+        "id": 8,
+        "ranking_malaga": 344,
+        "nombre": "ANA MARIA",
+        "apellidos": "MARTIN REAL",
+        "puntos": 42031.25,
+        "ganados": 3,
+        "perdidos": 0,
+        "jugados": 3
+    },
+    {
+        "id": 9,
+        "ranking_malaga": 195,
+        "nombre": "ANDREA",
+        "apellidos": "SALVICHE RODRIGUEZ",
+        "puntos": 54821.43,
+        "ganados": 5,
+        "perdidos": 3,
+        "jugados": 8
+    },
+    {
+        "id": 10,
+        "ranking_malaga": 116,
+        "nombre": "ROSA",
+        "apellidos": "MORENO LEIVA",
+        "puntos": 62500.0,
+        "ganados": 4,
+        "perdidos": 2,
+        "jugados": 6
+    },
+    {
+        "id": 11,
+        "ranking_malaga": 207,
+        "nombre": "SARA",
+        "apellidos": "ORTIZ LOPEZ",
+        "puntos": 53750.0,
+        "ganados": 5,
+        "perdidos": 4,
+        "jugados": 9
+    },
+    {
+        "id": 12,
+        "ranking_malaga": 226,
+        "nombre": "LAURA",
+        "apellidos": "MUÑOZ GAMBERO",
+        "puntos": 51875.0,
+        "ganados": 5,
+        "perdidos": 4,
+        "jugados": 9
+    },
+    {
+        "id": 13,
+        "ranking_malaga": 104,
+        "nombre": "ESTELA",
+        "apellidos": "SERRANO BALLESTEROS",
+        "puntos": 64218.75,
+        "ganados": 3,
+        "perdidos": 1,
+        "jugados": 4
+    },
+    {
+        "id": 14,
+        "ranking_malaga": 173,
+        "nombre": "ESTELA",
+        "apellidos": "PINTO REQUEJO",
+        "puntos": 57187.5,
+        "ganados": 3,
+        "perdidos": 1,
+        "jugados": 4
+    },
+    {
+        "id": 15,
+        "ranking_malaga": 163,
+        "nombre": "ESTEFANIA",
+        "apellidos": "GONZÁLEZ MEDINA",
+        "puntos": 58125.0,
+        "ganados": 4,
+        "perdidos": 3,
+        "jugados": 7
+    },
+    {
+        "id": 16,
+        "ranking_malaga": 477,
+        "nombre": "BELEN",
+        "apellidos": "GONZALEZ DOMINGUEZ",
+        "puntos": 31406.25,
+        "ganados": 2,
+        "perdidos": 0,
+        "jugados": 2
+    },
+    {
+        "id": 17,
+        "ranking_malaga": 496,
+        "nombre": "LAURA",
+        "apellidos": "BENITEZ FUENTES",
+        "puntos": 29531.25,
+        "ganados": 2,
+        "perdidos": 0,
+        "jugados": 2
+    },
+    {
+        "id": 18,
+        "ranking_malaga": 497,
+        "nombre": "AMIRA",
+        "apellidos": "BERRADA",
+        "puntos": 29218.75,
+        "ganados": 2,
+        "perdidos": 0,
+        "jugados": 2
+    },
+    {
+        "id": 19,
+        "ranking_malaga": 201,
+        "nombre": "SONIA",
+        "apellidos": "MARTÍN MARCHENA",
+        "puntos": 54250.0,
+        "ganados": 3,
+        "perdidos": 2,
+        "jugados": 5
+    },
+    {
+        "id": 20,
+        "ranking_malaga": 410,
+        "nombre": "HENAR",
+        "apellidos": "REVILLA TALAMILLO",
+        "puntos": 36250.0,
+        "ganados": 2,
+        "perdidos": 1,
+        "jugados": 3
+    },
+    {
+        "id": 21,
+        "ranking_malaga": 451,
+        "nombre": "JULIA",
+        "apellidos": "HERRERA SANCHEZ",
+        "puntos": 34062.5,
+        "ganados": 2,
+        "perdidos": 1,
+        "jugados": 3
+    },
+    {
+        "id": 22,
+        "ranking_malaga": 235,
+        "nombre": "REBECA",
+        "apellidos": "ALONSO GOMEZ",
+        "puntos": 50104.17,
+        "ganados": 3,
+        "perdidos": 4,
+        "jugados": 7
+    },
+    {
+        "id": 23,
+        "ranking_malaga": 115,
+        "nombre": "MARIA",
+        "apellidos": "BARBEDO",
+        "puntos": 62656.25,
+        "ganados": 2,
+        "perdidos": 3,
+        "jugados": 5
+    },
+    {
+        "id": 24,
+        "ranking_malaga": 653,
+        "nombre": "DIANELA MAGALI",
+        "apellidos": "CASTELLANO",
+        "puntos": 15937.5,
+        "ganados": 1,
+        "perdidos": 0,
+        "jugados": 1
+    },
+    {
+        "id": 25,
+        "ranking_malaga": 665,
+        "nombre": "CARMEN",
+        "apellidos": "VEGA ROA",
+        "puntos": 15468.75,
+        "ganados": 1,
+        "perdidos": 0,
+        "jugados": 1
+    },
+    {
+        "id": 26,
+        "ranking_malaga": 680,
+        "nombre": "JENNIFER",
+        "apellidos": "HARO NAVARRO",
+        "puntos": 12656.25,
+        "ganados": 1,
+        "perdidos": 0,
+        "jugados": 1
+    },
+    {
+        "id": 27,
+        "ranking_malaga": 555,
+        "nombre": "CRISTINA",
+        "apellidos": "ROMERO GARCÍA",
+        "puntos": 24375.0,
+        "ganados": 1,
+        "perdidos": 1,
+        "jugados": 2
+    },
+    {
+        "id": 28,
+        "ranking_malaga": 676,
+        "nombre": "CAROLINA",
+        "apellidos": "GARCIA ORTIZ",
+        "puntos": 13281.25,
+        "ganados": 0,
+        "perdidos": 1,
+        "jugados": 1
+    },
+    {
+        "id": 29,
+        "ranking_malaga": 742,
+        "nombre": "SANDRA",
+        "apellidos": "FIELDING MARQUEZ",
+        "puntos": 5312.5,
+        "ganados": 0,
+        "perdidos": 1,
+        "jugados": 1
+    },
+    {
+        "id": 30,
+        "ranking_malaga": 742,
+        "nombre": "PAULA",
+        "apellidos": "GARCÍA PAULETE",
+        "puntos": 5312.5,
+        "ganados": 0,
+        "perdidos": 1,
+        "jugados": 1
+    },
+    {
+        "id": 31,
+        "ranking_malaga": 790,
+        "nombre": "ESTHER",
+        "apellidos": "JIMENEZ PALOMERA",
+        "puntos": 0.0,
+        "ganados": 0,
+        "perdidos": 0,
+        "jugados": 0
+    },
+    {
+        "id": 32,
+        "ranking_malaga": 790,
+        "nombre": "MARTA",
+        "apellidos": "TINEO QUERO",
+        "puntos": 0.0,
+        "ganados": 0,
+        "perdidos": 0,
+        "jugados": 0
+    },
+    {
+        "id": 33,
+        "ranking_malaga": 790,
+        "nombre": "LARA",
+        "apellidos": "HERRERA QUINTELA",
+        "puntos": 0.0,
+        "ganados": 0,
+        "perdidos": 0,
+        "jugados": 0
+    },
+    {
+        "id": 34,
+        "ranking_malaga": 790,
+        "nombre": "CARMEN",
+        "apellidos": "MORENO MARTIN",
+        "puntos": 0.0,
+        "ganados": 0,
+        "perdidos": 0,
+        "jugados": 0
+    },
+    {
+        "id": 35,
+        "ranking_malaga": 790,
+        "nombre": "AFRICA",
+        "apellidos": "GONZÁLEZ SANCHEZ",
+        "puntos": 0.0,
+        "ganados": 0,
+        "perdidos": 0,
+        "jugados": 0
+    },
+    {
+        "id": 36,
+        "ranking_malaga": 790,
+        "nombre": "NOELIA",
+        "apellidos": "GONZÁLEZ CABALLERO",
+        "puntos": 0.0,
+        "ganados": 0,
+        "perdidos": 0,
+        "jugados": 0
+    }
+]
