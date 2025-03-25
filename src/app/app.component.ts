@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { DataService } from './data.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SearchService } from './search.service';
+import { RankingComponent } from "./ranking/ranking.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, FormsModule],
+  imports: [CommonModule, FormsModule, RankingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

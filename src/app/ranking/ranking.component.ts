@@ -95,14 +95,13 @@ export class RankingComponent implements OnInit {
     return Math.min(5, Math.max(0, scaled)); // Limita entre 0 y 5
   }
 
-  getFilteredSortedPlayers() {
+  getFilteredSortedPlayers(): Player[] {
+    const text = this.searchText.toLowerCase();
+
     let filteredPlayers = this.players.filter(player =>
-      `${player.nombre} ${player.apellidos}`
-        .toLowerCase()
-        .includes(this.searchText.toLowerCase())
+      `${player.nombre} ${player.apellidos}`.toLowerCase().includes(text)
     );
 
-    // 🔽 Ordenar según columna seleccionada
     return filteredPlayers.sort((a, b) => {
       const valueA = a[this.sortColumn as keyof Player];
       const valueB = b[this.sortColumn as keyof Player];
