@@ -33,15 +33,15 @@
     transition: background-color 0.2s ease-in-out;
   }
 
-  order:hover {
+  .order:hover {
     background-color: #e9ecef; /* Un gris claro */
   }
 
-  order.ascending::after {
+  .order.ascending::after {
     content: " ⬆️";
   }
   
-  order.descending::after {
+  .order.descending::after {
     content: " ⬇️";
   }
   
@@ -62,18 +62,16 @@
 
 /* Estilo para tarjetas en móvil */
 .player-card {
-    /* margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); */
-    background: linear-gradient(135deg, #2196F3 0%, #4CAF50 100%);
-    color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: #d9d9d9;
+    color: #000;
+    border-radius: 10px;
     padding: 10px;
     margin-bottom: 15px;
-    transition: transform 0.3s ease-in-out;
+    border: 2px solid rgba(0, 0, 0, 0.1); /* Borde suave */
+    transition: all 0.2s ease-in-out;
   }
+  
+  /* 🎾 Hover con efecto dinámico */
   .player-card:hover {
     transform: scale(1.02);
   }
@@ -98,16 +96,36 @@
   .stats-container {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.15);
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.80); /* 🔵 Fondo semi-transparente */
     border-radius: 8px;
+    font-weight: bold;
+    font-size: 13px !important;
+    gap: 8px;
   }
   
   /* 📌 Iconos alineados y con margen */
   .stats-container span {
     display: flex;
     align-items: center;
+    gap: 4px;
   }
+
+  /* 🔥 Ganados */
+.stats-container .wins {
+    color: #00C853; /* Verde fuerte */
+}
+
+/* ❌ Perdidos */
+.stats-container .losses {
+    color: #D32F2F; /* Rojo fuerte */
+}
+
+/* 🏆 Jugados */
+.stats-container .played {
+    color: #FDD835; /* Amarillo dorado pero sutil */
+}
   
   /* 📌 Espaciado entre las líneas */
   .player-card span {
@@ -120,5 +138,82 @@
       display: none;
     }
   }
+
+  /* Container for the list */
+.parejas-container {
+    background: #1e1e1e; /* Dark background for contrast */
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 174, 239, 0.2); /* Subtle glow */
+    font-size: 0.8rem;
+}
+
+/* Header for the "Parejas" and "Efectividad" titles */
+.parejas-header,
+.pareja-item {
+  display: grid;
+  grid-template-columns: 1fr 60px 80px;
+  column-gap: 12px;
+  align-items: center;
+}
+
+.parejas-header {
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  color: #00AEEF;
+  font-weight: bold;
+}
+
+.pareja-stat,
+.pareja-stat-header {
+  text-align: right;
+  font-weight: 500;
+  color: #FFD700;
+}
+
+.pareja-played {
+  text-align: right;
+  font-weight: 500;
+  color: #fff;
+}
+
+.pareja-name{
+  color: #fff;
+}
+
+.pareja-header {
+  color: #00AEEF;
+  font-size: 0.9rem;
+}
+
+/* List styling */
+.parejas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.parejas-list li {
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
+}
+
+.parejas-list li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Icon styling */
+.pareja-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    filter: brightness(1.2); /* Slightly enhance visibility */
+}
+
   
   

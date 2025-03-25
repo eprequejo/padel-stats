@@ -1,0 +1,81 @@
+/* 📌 Top Bar */
+.top-bar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #000000; /* Fondo negro sólido */
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.15); /* Efecto de luz sutil */
+    justify-content: center;  /* Centra horizontalmente */
+}
+
+/* 🔵 Logo */
+.top-bar .logo {
+    height: 40px;
+}
+
+/* 📌 Default Navigation */
+.top-bar nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* 🎾 Links */
+.top-bar nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.top-bar nav a:hover,
+.top-bar nav .active {
+    color: #AFAFAF; /* 🔵 Cambio a gris metálico */
+}
+
+/* 🍔 Hamburger Button */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+/* 📱 Responsive Navigation */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .top-bar nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #2A2A2A; /* 🔵 Fondo oscuro metálico */
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+    }
+
+    .top-bar nav.open {
+        display: flex;
+    }
+
+    .top-bar nav a {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .top-bar nav a:last-child {
+        border-bottom: none;
+    }
+}

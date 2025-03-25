@@ -1,1 +1,15 @@
-<app-ranking></app-ranking>
+<header class="top-bar">
+  <img src="assets/logo.jpg" alt="OHU Padel" class="logo">
+
+  <input 
+    type="text" 
+    class="form-control"
+    placeholder="🔍 Buscar jugadora..." 
+    (input)="updateSearchText($event)"
+  />
+</header>
+
+<!-- Main Content -->
+<main class="content">
+  <router-outlet></router-outlet>
+</main>

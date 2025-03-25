@@ -1,15 +1,6 @@
 <div class="container mt-4">
-    <h2 class="text-center mb-3">🏆 Rankings Individuales 🏆</h2>
+    <h2 class="text-center mb-3">🏆 Rankings Individuales OHU PADEL 🏆</h2>
 
-    <div class="mb-3">
-        <input 
-          type="text" 
-          class="form-control" 
-          placeholder="🔍 Buscar jugadora..." 
-          [(ngModel)]="searchText"
-        />
-      </div>
-  
     <div class="table-responsive d-none d-md-block">
       <table class="table table-striped table-hover align-middle">
         <thead class="table-dark">
@@ -19,7 +10,7 @@
                 class="order" 
                 (click)="sortBy('efectividad')">
                 <span *ngIf="sortColumn === 'efectividad'">
-                    Factor de Rendimiento OHU PADEL 🔥
+                    Factor de Rendimiento 🔥
                     <span *ngIf="sortAsc">⬆️</span>
                     <span *ngIf="!sortAsc">⬇️</span>
                 </span>
@@ -43,13 +34,13 @@
         <tbody>
           <tr *ngFor="let player of getFilteredSortedPlayers(); let i = index">
             <td>{{ player.nombre }} {{ player.apellidos }}</td>
-            <td>{{ player.factorRendimiento | number:'1.2-2' }}</td>
-            <td>{{ player.efectividad | number:'1.0-2' }}%</td>
-            <td class="text-success fw-bold">{{ player.ganados }}</td>
-            <td class="text-danger fw-bold">{{ player.perdidos }}</td>
-            <td>{{ player.jugados }}</td>
+            <td>{{ player.frGlobal| number:'1.2-2' }}</td>
+            <td>{{ player.effectiveness| number:'1.0-2' }}%</td>
+            <td class="text-success fw-bold">{{ player.stats.won }}</td>
+            <td class="text-danger fw-bold">{{ player.stats.lost }}</td>
+            <td>{{ player.stats.played }}</td>
             <td>{{ player.puntos }}</td>
-            <td>{{ player.rankingMalaga }}</td>
+            <td>{{ player.ranking_malaga }}</td>
           </tr>
         </tbody>
       </table>
@@ -59,22 +50,38 @@
 <div class="d-md-none">
     <div *ngFor="let player of getFilteredSortedPlayers()" class="card player-card">
       <div class="card-body">
-        <h5 class="card-title">{{ player.nombre }} {{ player.apellidos }}</h5>
+        <h5 class="card-title">{{ player.rankingOHUPadel }}. {{ player.nombre }} {{ player.apellidos }}</h5>
   
         <!-- 📌 Factor de Rendimiento y Efectividad -->
-        <span><strong class="card-text">🔥 Factor de Rendimiento OHU PADEL:</strong> {{ player.factorRendimiento | number:'1.2-2' }}</span><br>
-        <span><strong class="card-text">🎯 Efectividad:</strong> {{ player.efectividad | number:'1.2-2' }}%</span>
+        <span><strong class="card-text">🔥 Factor de Rendimiento:</strong> {{ player.frGlobal| number:'1.2-2' }}</span><br>
+        <span><strong class="card-text">🎯 Efectividad:</strong> {{ player.effectiveness | number:'1.2-2' }}%</span>
   
         <!-- 📌 Contenedor de estadísticas -->
         <div class="stats-container mt-2 card-text">
-          <span>✅ <strong>Ganados:</strong> <span class="text-success fw-bold ms-1">{{ player.ganados }}</span></span>
-          <span>❌ <strong>Perdidos:</strong> <span class="text-danger fw-bold ms-1">{{ player.perdidos }}</span></span>
-          <span>🎾 <strong>Jugados:</strong> {{ player.jugados }}</span>
+          <span>✅ <strong>Ganados:</strong> <span class="text-success fw-bold ms-1">{{ player.stats.won }}</span></span>
+          <span>❌ <strong>Perdidos:</strong> <span class="text-danger fw-bold ms-1">{{ player.stats.lost }}</span></span>
+          <span>🎾 <strong>Jugados:</strong> {{ player.stats.played }}</span>
         </div>
   
         <!-- 📌 Puntos y Ranking -->
         <span><strong class="card-text">🏆 Puntos SNP:</strong> {{ player.puntos }}</span><br>
         <span><strong class="card-text">📊 Ranking Málaga:</strong> {{ player.ranking_malaga }}</span>
+
+        <div class="parejas-container">
+            <div class="parejas-header">
+              <span class="pareja-header">Pareja</span>
+              <span class="pareja-header">Jugados</span>
+              <span class="pareja-header">Efectividad</span>
+            </div>
+            <ul class="parejas-list">
+                <li *ngFor="let p of player.pairs" class="pareja-item">
+                  <span class="pareja-name">{{ p.name }}</span>
+                  <span class="pareja-played">{{ p.played }}</span>
+                  <span class="pareja-stat">{{ p.effectiveness | number:'1.0-2' }}%</span>
+                </li>
+            </ul>
+        </div>
+
       </div>
     </div>
   </div>
