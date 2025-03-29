@@ -5,10 +5,16 @@ export interface Player {
     puntos: number;
     stats: Stats;
     ranking_malaga: number;
-    frGlobal: number;
+    frGlobal: FRGlobal;
     rankingOHUPadel: number;
     effectiveness: number;
     pairs: Array<Pair>;
+  }
+
+  export interface FRGlobal {
+    frGlobal: number;
+    label: string;
+    color: string;
   }
   
   export interface Stats {

@@ -13,6 +13,12 @@
     overflow-y: auto;   /* ✅ Enable vertical scrolling */
     border: 1px solid #ddd;
   }
+
+  .temporada-label {
+    color: #ccc;
+    font-size: 0.85rem;
+    margin-top: -10px;
+  }
   
   .table {
     font-size: 0.9rem; /* ✅ Adjust text size for mobile */
@@ -47,7 +53,7 @@
   
   @media (max-width: 768px) {
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
   
     .table th, .table td {
@@ -102,7 +108,7 @@
     border-radius: 8px;
     font-weight: bold;
     font-size: 13px !important;
-    gap: 8px;
+    gap: 4px;
   }
   
   /* 📌 Iconos alineados y con margen */
@@ -214,6 +220,42 @@
     margin-right: 8px;
     filter: brightness(1.2); /* Slightly enhance visibility */
 }
+
+.fr-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  float: right;
+}
+
+.fr-muy-alto {
+  background-color: #1E90FF; /* puedes cambiar según nivel */
+}
+
+.fr-alto {
+  background-color: #28a745; /* Verde */
+}
+
+.fr-medio {
+  background-color: #ffc107; /* Amarillo */
+  color: #000;
+}
+
+.fr-medio-bajo {
+  background-color: #fd7e14; /* Naranja */
+}
+
+.value {
+  font-weight: 500;
+  margin-right: 6px;
+  margin-left: 6px;
+  font-size: 0.9rem;
+}
+
 
   
   

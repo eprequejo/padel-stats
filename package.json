@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --configuration production --base-href=/padel-stats/ && cp dist/padel-stats/index.html dist/padel-stats/404.html && npx angular-cli-ghpages --dir=dist/padel-stats"
+
   },
   "private": true,
   "dependencies": {
