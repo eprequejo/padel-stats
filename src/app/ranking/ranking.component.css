@@ -229,6 +229,9 @@
   font-weight: 600;
   color: #fff;
   text-align: center;
+}
+
+.fr-badge-mobile {
   float: right;
 }
 
@@ -302,9 +305,22 @@
   color: #FFD700;
 }
 
+.parejas-table-subheader {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 2px;
+  margin-bottom: 4px;
+}
 
+.parejas-table-list li {
+  font-size: 0.8rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  padding: 2px 0;
+}
 
+.parejas-table-list span {
+  width: 33%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-
-  
-  
