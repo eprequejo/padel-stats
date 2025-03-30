@@ -233,20 +233,35 @@
 }
 
 .fr-muy-alto {
-  background-color: #1E90FF; /* puedes cambiar según nivel */
+  background-color: #00AEEF; /* puedes cambiar según nivel */
 }
 
 .fr-alto {
-  background-color: #28a745; /* Verde */
+  background-color: #8ea728; /* Verde */
 }
 
 .fr-medio {
-  background-color: #ffc107; /* Amarillo */
-  color: #000;
+  background-color: #E69500; /* Amarillo */
 }
 
 .fr-medio-bajo {
-  background-color: #fd7e14; /* Naranja */
+  background-color: #A0522D; /* Naranja */
+}
+
+.r-muy-alto {
+  color: #00AEEF; /* puedes cambiar según nivel */
+}
+
+.r-alto {
+  color: #28a745; /* Verde */
+}
+
+.r-medio {
+  color: #E69500; /* Amarillo */
+}
+
+.r-medio-bajo {
+  color: #A0522D; /* Naranja */
 }
 
 .value {
@@ -255,6 +270,20 @@
   margin-left: 6px;
   font-size: 0.9rem;
 }
+
+.player-rank {
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.player-name {
+  font-weight: 600;
+  color: #333333; /* gris oscuro para contraste sobre gris claro */
+  font-size: 1.05rem;
+}
+
+
 
 
   

@@ -55,7 +55,18 @@
 <div class="d-md-none">
     <div *ngFor="let player of getFilteredSortedPlayers()" class="card player-card">
       <div class="card-body">
-        <h5 class="card-title">{{ player.rankingOHUPadel }}. {{ player.nombre }} {{ player.apellidos }}</h5>
+
+        <h5 class="card-title">
+          <span 
+            class="player-rank"
+            [ngClass]="{
+              'r-muy-alto': getFRLevel(player.frGlobal.frGlobal).label === 'Muy Alto',
+              'r-alto': getFRLevel(player.frGlobal.frGlobal).label === 'Alto',
+              'r-medio': getFRLevel(player.frGlobal.frGlobal).label === 'Medio',
+              'r-medio-bajo': getFRLevel(player.frGlobal.frGlobal).label === 'Medio-Bajo'
+            }">#{{ player.rankingOHUPadel }}</span>
+          <span class="player-name">{{ player.nombre }} {{ player.apellidos }}</span>
+        </h5>
   
         <!-- 📌 Factor de Rendimiento y Efectividad -->
         <span>
