@@ -73,5 +73,10 @@
     { "jugador_1": 11, "jugador_2": 2, "sets_ganados": 2, "sets_perdidos": 1, "numero_partido": 2, "resultado": true },
     { "jugador_1": 9, "jugador_2": 23, "sets_ganados": 1, "sets_perdidos": 2, "numero_partido": 3, "resultado": false },
     { "jugador_1": 12, "jugador_2": 13, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 4, "resultado": false },
-    { "jugador_1": 4, "jugador_2": 1, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 5, "resultado": true }
+    { "jugador_1": 4, "jugador_2": 1, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 5, "resultado": true },
+    { "jugador_1": 10, "jugador_2": 13, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 1, "resultado": false },
+    { "jugador_1": 3, "jugador_2": 15, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 2, "resultado": false },
+    { "jugador_1": 11, "jugador_2": 2, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 3, "resultado": false },
+    { "jugador_1": 6, "jugador_2": 4, "sets_ganados": 1, "sets_perdidos": 2, "numero_partido": 4, "resultado": false },
+    { "jugador_1": 9, "jugador_2": 19, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 5, "resultado": true }
 ]
