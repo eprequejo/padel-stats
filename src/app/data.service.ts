@@ -8,12 +8,10 @@ import { Match, Player, Stats } from './models';
 })
 export class DataService {
 
-  private matches: Array<Match> = []; // Almacenamos los partidos localmente
-  private players: Array<Player> = []; // Almacenamos los jugadores
+  totalMatches: number = 16; // fallback
 
   constructor(private http: HttpClient) {
-    this.loadMatches();
-    this.loadPlayers();
+    this.loadConfig();
   }
 
   getPlayers(): Observable<Array<Player>> {
@@ -24,44 +22,10 @@ export class DataService {
     return this.http.get<Array<Match>>('assets/matches.json');
   }
 
-  loadMatches(): void {
-    this.getMatches().subscribe((data) => {
-      this.matches = data;
+  loadConfig(): void {
+    this.http.get<any>('assets/config.json').subscribe(config => {
+      this.totalMatches = config.totalMatches;
     });
-  }
-
-  loadPlayers(): void {
-    this.getPlayers().subscribe((data) => {
-      this.players = data;
-      this.players = this.players.map(player => ({
-        ...player,
-        ganados: 0,
-        perdidos: 0,
-        jugados: 0,
-        frGlobal: { frGlobal: 0, label: "", color: "" },
-        rankingOHUPadel: 0,
-        effectiveness: 0,
-        pairs: []
-      }));
-    });
-  }
-
-  getPairsForPlayer(playerId: number): string[] {
-    if (this.matches.length === 0) return []; // Si aún no cargaron los partidos, retorna vacío
-    const pairs = new Set<string>(); // Usamos un Set para evitar duplicados
-    this.matches.forEach(match => {
-      if (match.jugador_1 === playerId) {
-        pairs.add(this.getPlayerNameById(match.jugador_2));
-      } else if (match.jugador_2 === playerId) {
-        pairs.add(this.getPlayerNameById(match.jugador_1));
-      }
-    });
-    return Array.from(pairs);
-  }
-
-  getPlayerNameById(playerId: number): string {
-    const player = this.players.find(p => p.id === playerId);
-    return player ? `${player.nombre} ${player.apellidos}` : "Desconocido";
   }
 
 }

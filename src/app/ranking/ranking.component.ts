@@ -19,20 +19,22 @@ export class RankingComponent implements OnInit {
   searchText: string = "";
   sortColumn: string = 'factorRendimiento'; // ✅ Ordenar por efectividad por defecto
   sortAsc: boolean = false; // ✅ Orden descendente
-  totalMatches: number = 16; // ✅ Total de enfrentamientos por equipo to config file
+  totalMatches: number = 0; // ✅ Total de enfrentamientos por equipo to config file
+  teamWinRate: number = 0; // ✅ Tasa de victorias del equipo
 
   FR_GLOBAL_MIN = 0;
   FR_GLOBAL_MAX = 0;
 
   constructor(
     private dataService: DataService,
-    private searchService: SearchService) {
-
-    this.FR_GLOBAL_MAX = this.fRGlobal(this.totalMatches, this.totalMatches, this.totalMatches);
-    this.FR_GLOBAL_MIN = this.fRGlobal(0, this.totalMatches, this.totalMatches);
-  }
+    private searchService: SearchService) { }
 
   ngOnInit(): void {
+
+    this.totalMatches = this.dataService.totalMatches;
+    this.FR_GLOBAL_MAX = this.fRGlobal(this.totalMatches, this.totalMatches, this.totalMatches);
+    this.FR_GLOBAL_MIN = this.fRGlobal(0, this.totalMatches, this.totalMatches);
+
     this.searchService.searchText$.subscribe(text => {
       this.searchText = text.toLowerCase();
       this.getFilteredSortedPlayers();
@@ -61,8 +63,15 @@ export class RankingComponent implements OnInit {
         });
 
         this.assignRanking();
+        this.calculateTeamWinRate(matches);
       });
     });
+  }
+
+  calculateTeamWinRate(matches: Array<Match>) {
+    const totalMatches = matches.length;
+    const matchesWon = matches.filter(match => match.resultado).length;
+    this.teamWinRate = totalMatches > 0 ? (matchesWon / totalMatches) * 100 : 0;
   }
 
   calculatePlayerStats(playerId: number, matches: Array<Match>): Stats {

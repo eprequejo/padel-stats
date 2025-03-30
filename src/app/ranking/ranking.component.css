@@ -282,6 +282,27 @@
   font-size: 1.05rem;
 }
 
+.encabezado-ranking {
+  margin-bottom: 10px;
+}
+
+.encabezado-ranking h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.team-win-rate {
+  font-size: 0.85rem;
+  color: #dddddd;
+}
+
+.win-rate-value {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+
 
 
 
