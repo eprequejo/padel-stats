@@ -25,6 +25,9 @@ export class RankingComponent implements OnInit {
   FR_GLOBAL_MIN = 0;
   FR_GLOBAL_MAX = 0;
 
+  ln = Math.log;
+  log10 = Math.log10;
+
   constructor(
     private dataService: DataService,
     private searchService: SearchService) { }
@@ -42,29 +45,67 @@ export class RankingComponent implements OnInit {
 
     this.dataService.getPlayers().subscribe((players) => {
       this.dataService.getMatches().subscribe((matches) => {
-
-        this.players = players.map(player => {
-
-          const stats = this.calculatePlayerStats(player.id, matches);
-          const pairs = this.getPlayerPairsWithEffectiveness(player.id, matches, players);
-
-          const effectiveness = (stats.won / stats.played) * 100 || 0;
-          const frGlobalRaw = this.fRGlobal(stats.won, stats.played, this.totalMatches);
-          const frGlobalValue = this.scaleFRGlobal(frGlobalRaw);
-          const levelData = this.getFRLevel(frGlobalValue);
-    
-          return {
-            ...player,
-            stats,
-            pairs,
-            effectiveness,
-            frGlobal: { frGlobal: frGlobalValue, label: levelData.label, color: levelData.color }
-          };
-        });
-
+        this.players = this.calculateMetrics(matches, players);
         this.assignRanking();
         this.calculateTeamWinRate(matches);
       });
+    });
+  }
+
+  calculateMetrics(matches: Array<Match>, players: Array<Player>): Array<Player> {
+
+    return players.map(player => {
+      const playerMatches = matches.filter(
+        match => match.jugador_1 === player.id || match.jugador_2 === player.id
+      );
+      console.log(player)
+      console.log(playerMatches);
+  
+      let wonWeighted = 0;
+      let playedWeighted = 0;
+      let won = 0;
+      let lost = 0;
+  
+      playerMatches.forEach(match => {
+        const level = match.numero_partido;
+        const ponderation = this.getPonderation(level);
+        console.log(ponderation);
+        playedWeighted += ponderation;
+
+        const isWinner =
+          (match.jugador_1 === player.id || match.jugador_2 === player.id) && match.resultado;
+
+        if (isWinner) {
+          wonWeighted += ponderation;
+          won += 1;
+        } else {
+          lost += 1;
+        }
+      });
+
+      const stats: Stats = {
+        played: playerMatches.length,
+        won,
+        lost
+      };
+
+      const frRaw = this.fRGlobal(wonWeighted, playedWeighted, stats.played);
+      const frScaled = this.scaleFRGlobal(frRaw, stats.played, 5);
+      const levelData = this.getFRLevel(frScaled);
+      const pairs = this.getPlayerPairsWithEffectiveness(player.id, matches, players);
+      const effectiveness = (stats.won / stats.played) * 100 || 0;
+
+      return {
+        ...player,
+        stats,
+        pairs,
+        effectiveness,
+        frGlobal: {
+          frGlobal: frScaled,
+          label: levelData.label,
+          color: levelData.color
+        }
+      };
     });
   }
 
@@ -149,14 +190,22 @@ export class RankingComponent implements OnInit {
         lastFR = player.frGlobal.frGlobal;
       });
   }
-  
 
-  ira(ganados: number, jugados: number): number {
-    return jugados > 0 ? (ganados / jugados) * Math.log(jugados + 1) : 0;
+  // Get ponderation based on difficulty level (1 to 5)
+  // Level 1 = most difficult = weight 5, Level 5 = easiest = weight 1
+  getPonderation(level: number): number {
+    return 6 - level;
+  }
+
+  ira(winsWeighted: number, playedWeighted: number): number {
+    return playedWeighted > 0 ? (winsWeighted / playedWeighted) * this.ln(playedWeighted + 1) : 0;
   }
   
-  eficiencia(ganados: number, jugados: number, totalEnfrentamientosEquipo: number ): number {
-    return jugados > 0 ? (ganados / jugados) * (Math.log10(ganados + 1) / Math.log10(totalEnfrentamientosEquipo + 1)) : 0;
+  eficiencia( winsWeighted: number, playedWeighted: number, totalTeamMatches: number): number {
+    if (playedWeighted === 0 || winsWeighted === 0) return 0;
+    return (
+      (winsWeighted / playedWeighted) * (this.log10(winsWeighted + 1) / this.log10(totalTeamMatches + 1))
+    );
   }
   
   fRGlobal(ganados: number, jugados: number, totalEnfrentamientosEquipo: number): number {
@@ -165,11 +214,10 @@ export class RankingComponent implements OnInit {
     return (2 * ira + eficiencia) / 3;
   }
 
-  scaleFRGlobal(fr: number): number {
-    const min = this.FR_GLOBAL_MIN;
-    const max = this.FR_GLOBAL_MAX;
-    const scaled = ((fr - min) / (max - min)) * 5;
-    return Math.min(5, Math.max(0, scaled)); // Limita entre 0 y 5
+  // Scale the FR to a 0–5 range based on the max possible FR
+  scaleFRGlobal(fr: number, totalTeamMatches: number, maxPonderation: number): number {
+    const frMax = this.calculateMaxFR(totalTeamMatches, maxPonderation);
+    return (fr / frMax) * 5;
   }
 
   getFRLevel(fr: number): { label: string; color: string } {
@@ -182,6 +230,13 @@ export class RankingComponent implements OnInit {
     } else {
       return { label: 'Medio-Bajo', color: '#fd7e14' }; // Naranja
     }
+  }
+
+  // Compute the theoretical max FR with perfect performance
+  calculateMaxFR(possibleMatches: number, maxPonderation: number): number {
+    const matchesWeighted = possibleMatches * maxPonderation;
+    const winsWeighted = matchesWeighted; // all wins
+    return this.fRGlobal(winsWeighted, matchesWeighted, possibleMatches);
   }
 
   getFilteredSortedPlayers(): Player[] {
