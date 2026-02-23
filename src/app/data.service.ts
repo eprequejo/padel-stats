@@ -10,22 +10,18 @@ export class DataService {
 
   totalMatches: number = 16; // fallback
 
-  constructor(private http: HttpClient) {
-    this.loadConfig();
+  constructor(private http: HttpClient) {}
+
+  getPlayers(season: string): Observable<Array<Player>> {
+    return this.http.get<Array<Player>>(`assets/${season}/players.json`);
   }
 
-  getPlayers(): Observable<Array<Player>> {
-    return this.http.get<Array<Player>>(`assets/players.json`);
+  getMatches(season: string): Observable<Array<Match>> {
+    return this.http.get<Array<Match>>(`assets/${season}/matches.json`);
   }
 
-  getMatches(): Observable<Array<Match>> {
-    return this.http.get<Array<Match>>('assets/matches.json');
-  }
-
-  loadConfig(): void {
-    this.http.get<any>('assets/config.json').subscribe(config => {
-      this.totalMatches = config.totalMatches;
-    });
+  loadConfig(season: string): Observable<any> {
+    return this.http.get<any>(`assets/${season}/config.json`);
   }
 
 }

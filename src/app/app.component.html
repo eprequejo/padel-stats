@@ -1,15 +1,25 @@
 <header class="top-bar">
   <img src="assets/logo.jpg" alt="OHU Padel" class="logo">
 
-  <input 
-    type="text" 
+  <input
+    type="text"
     class="form-control"
-    placeholder="🔍 Buscar jugadora..." 
+    placeholder="🔍 Buscar jugadora..."
     (input)="updateSearchText($event)"
   />
 </header>
 
+<nav class="season-tabs">
+  <button
+    *ngFor="let season of seasons"
+    class="season-tab"
+    [class.active]="selectedSeason === season"
+    (click)="selectSeason(season)">
+    Temporada {{ season.replace('-', '/') }}
+  </button>
+</nav>
+
 <!-- Main Content -->
 <main class="content">
-  <app-ranking></app-ranking>
+  <app-ranking [season]="selectedSeason"></app-ranking>
 </main>

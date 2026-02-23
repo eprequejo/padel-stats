@@ -14,6 +14,8 @@ export class AppComponent {
   title = 'padel-stats';
   menuOpen = false;
   searchText: string = '';
+  selectedSeason: string = '25-26';
+  seasons: string[] = ['25-26', '24-25'];
 
   constructor(private searchService: SearchService) {}
 
@@ -22,6 +24,10 @@ export class AppComponent {
 
   updateSearchText(event: any) {
     this.searchService.setSearchText(event.target.value);
+  }
+
+  selectSeason(season: string) {
+    this.selectedSeason = season;
   }
 
   toggleMenu() {
