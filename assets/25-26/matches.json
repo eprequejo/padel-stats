@@ -1,0 +1,61 @@
+[
+    { "jugador_1": 3, "jugador_2": 15, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 1, "resultado": true },
+    { "jugador_1": 4, "jugador_2": 1, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 2, "resultado": true },
+    { "jugador_1": 8, "jugador_2": 13, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 3, "resultado": true },
+    { "jugador_1": 17, "jugador_2": 7, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 4, "resultado": false },
+    { "jugador_1": 12, "jugador_2": 37, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 5, "resultado": true },
+
+    { "jugador_1": 3, "jugador_2": 15, "sets_ganados": 2, "sets_perdidos": 1, "numero_partido": 1, "resultado": true },
+    { "jugador_1": 4, "jugador_2": 6, "sets_ganados": 1, "sets_perdidos": 2, "numero_partido": 2, "resultado": false },
+    { "jugador_1": 9, "jugador_2": 2, "sets_ganados": 2, "sets_perdidos": 1, "numero_partido": 3, "resultado": true },
+    { "jugador_1": 10, "jugador_2": 25, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 4, "resultado": false },
+    { "jugador_1": 14, "jugador_2": 37, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 5, "resultado": true },
+
+    { "jugador_1": 4, "jugador_2": 1, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 1, "resultado": false },
+    { "jugador_1": 3, "jugador_2": 37, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 2, "resultado": true },
+    { "jugador_1": 9, "jugador_2": 13, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 3, "resultado": true },
+    { "jugador_1": 8, "jugador_2": 23, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 4, "resultado": true },
+    { "jugador_1": 14, "jugador_2": 26, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 5, "resultado": false },
+
+    { "jugador_1": 4, "jugador_2": 1, "sets_ganados": 2, "sets_perdidos": 1, "numero_partido": 1, "resultado": true },
+    { "jugador_1": 9, "jugador_2": 37, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 2, "resultado": false },
+    { "jugador_1": 12, "jugador_2": 2, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 3, "resultado": false },
+    { "jugador_1": 8, "jugador_2": 23, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 4, "resultado": true },
+    { "jugador_1": 10, "jugador_2": 22, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 5, "resultado": false },
+
+    { "jugador_1": 3, "jugador_2": 37, "sets_ganados": 1, "sets_perdidos": 2, "numero_partido": 1, "resultado": false },
+    { "jugador_1": 4, "jugador_2": 1, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 2, "resultado": false },
+    { "jugador_1": 9, "jugador_2": 15, "sets_ganados": 1, "sets_perdidos": 2, "numero_partido": 3, "resultado": false },
+    { "jugador_1": 11, "jugador_2": 2, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 4, "resultado": true },
+    { "jugador_1": 12, "jugador_2": 19, "sets_ganados": 1, "sets_perdidos": 2, "numero_partido": 5, "resultado": false },
+
+    { "jugador_1": 3, "jugador_2": 15, "sets_ganados": 1, "sets_perdidos": 2, "numero_partido": 1, "resultado": false },
+    { "jugador_1": 6, "jugador_2": 1, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 2, "resultado": true },
+    { "jugador_1": 9, "jugador_2": 13, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 3, "resultado": true },
+    { "jugador_1": 11, "jugador_2": 23, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 4, "resultado": true },
+    { "jugador_1": 14, "jugador_2": 16, "sets_ganados": 1, "sets_perdidos": 2, "numero_partido": 5, "resultado": false },
+
+    { "jugador_1": 3, "jugador_2": 37, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 1, "resultado": true },
+    { "jugador_1": 9, "jugador_2": 1, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 2, "resultado": false },
+    { "jugador_1": 6, "jugador_2": 2, "sets_ganados": 2, "sets_perdidos": 1, "numero_partido": 3, "resultado": true },
+    { "jugador_1": 8, "jugador_2": 13, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 4, "resultado": false },
+    { "jugador_1": 12, "jugador_2": 19, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 5, "resultado": false },
+
+    { "jugador_1": 4, "jugador_2": 37, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 1, "resultado": false },
+    { "jugador_1": 11, "jugador_2": 2, "sets_ganados": 2, "sets_perdidos": 1, "numero_partido": 2, "resultado": true },
+    { "jugador_1": 9, "jugador_2": 13, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 3, "resultado": false },
+    { "jugador_1": 21, "jugador_2": 8, "sets_ganados": 2, "sets_perdidos": 1, "numero_partido": 4, "resultado": true },
+    { "jugador_1": 36, "jugador_2": 25, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 5, "resultado": true },
+
+    { "jugador_1": 4, "jugador_2": 15, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 1, "resultado": false },
+    { "jugador_1": 11, "jugador_2": 2, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 2, "resultado": true },
+    { "jugador_1": 14, "jugador_2": 12, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 3, "resultado": false },
+    { "jugador_1": 8, "jugador_2": 5, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 4, "resultado": false },
+    { "jugador_1": 21, "jugador_2": 19, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 5, "resultado": false },
+
+    { "jugador_1": 3, "jugador_2": 37, "sets_ganados": 1, "sets_perdidos": 2, "numero_partido": 1, "resultado": false },
+    { "jugador_1": 9, "jugador_2": 4, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 2, "resultado": true },
+    { "jugador_1": 6, "jugador_2": 13, "sets_ganados": 2, "sets_perdidos": 0, "numero_partido": 3, "resultado": true },
+    { "jugador_1": 12, "jugador_2": 23, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 4, "resultado": false },
+    { "jugador_1": 8, "jugador_2": 25, "sets_ganados": 0, "sets_perdidos": 2, "numero_partido": 5, "resultado": false }
+]

@@ -1,0 +1,191 @@
+[
+    {
+        "id": 1,
+        "ranking_malaga": 40,
+        "nombre": "MARÍA DEL ROCÍO",
+        "apellidos": "MARTÍNEZ GUERRA",
+        "puntos": 71590.91
+    },
+    {
+        "id": 2,
+        "ranking_malaga": 102,
+        "nombre": "MARINA",
+        "apellidos": "CUENCA BUENO",
+        "puntos": 63750.0
+    },
+    {
+        "id": 3,
+        "ranking_malaga": 24,
+        "nombre": "BEATRIZ",
+        "apellidos": "CABELLO RODRIGUEZ",
+        "puntos": 77884.62
+    },
+    {
+        "id": 4,
+        "ranking_malaga": 75,
+        "nombre": "ROCIO",
+        "apellidos": "LEON RODRIGUEZ",
+        "puntos": 66964.29
+    },
+    {
+        "id": 5,
+        "ranking_malaga": 585,
+        "nombre": "PENELOPE",
+        "apellidos": "CORTES SIERRA",
+        "puntos": 21875.0
+    },
+    {
+        "id": 6,
+        "ranking_malaga": 131,
+        "nombre": "NATALIA",
+        "apellidos": "PAULETE SERRANO",
+        "puntos": 60937.5
+    },
+    {
+        "id": 7,
+        "ranking_malaga": 745,
+        "nombre": "LUCIA",
+        "apellidos": "ALCAZAR EXPOSITO",
+        "puntos": 6250.0
+    },
+    {
+        "id": 8,
+        "ranking_malaga": 368,
+        "nombre": "ANA MARÍA",
+        "apellidos": "MARTÍN REAL",
+        "puntos": 42187.5
+    },
+    {
+        "id": 9,
+        "ranking_malaga": 216,
+        "nombre": "ANDREA",
+        "apellidos": "SALVICHE RODRIGUEZ",
+        "puntos": 53125.0
+    },
+    {
+        "id": 10,
+        "ranking_malaga": 423,
+        "nombre": "ROSA",
+        "apellidos": "MORENO LEIVA",
+        "puntos": 37500.0
+    },
+    {
+        "id": 11,
+        "ranking_malaga": 67,
+        "nombre": "SARA",
+        "apellidos": "ORTIZ LOPEZ",
+        "puntos": 68055.56
+    },
+    {
+        "id": 12,
+        "ranking_malaga": 445,
+        "nombre": "LAURA",
+        "apellidos": "MUÑOZ GAMBERO",
+        "puntos": 36250.0
+    },
+    {
+        "id": 13,
+        "ranking_malaga": 290,
+        "nombre": "ESTELA",
+        "apellidos": "SERRANO BALLESTEROS",
+        "puntos": 48437.5
+    },
+    {
+        "id": 14,
+        "ranking_malaga": 455,
+        "nombre": "ESTELA",
+        "apellidos": "PINTO REQUEJO",
+        "puntos": 35000.0
+    },
+    {
+        "id": 15,
+        "ranking_malaga": 40,
+        "nombre": "ESTEFANIA",
+        "apellidos": "GONZÁLEZ MEDINA",
+        "puntos": 71590.91
+    },
+    {
+        "id": 16,
+        "ranking_malaga": 718,
+        "nombre": "BELEN",
+        "apellidos": "GONZALEZ DOMINGUEZ",
+        "puntos": 9375.0
+    },
+    {
+        "id": 17,
+        "ranking_malaga": 745,
+        "nombre": "LAURA",
+        "apellidos": "BENITEZ FUENTES",
+        "puntos": 6250.0
+    },
+    {
+        "id": 19,
+        "ranking_malaga": 455,
+        "nombre": "SONIA",
+        "apellidos": "MARTÍN MARCHENA",
+        "puntos": 35000.0
+    },
+    {
+        "id": 20,
+        "ranking_malaga": 0,
+        "nombre": "HENAR",
+        "apellidos": "REVILLA TALAMILLO",
+        "puntos": 0.0
+    },
+    {
+        "id": 21,
+        "ranking_malaga": 622,
+        "nombre": "JULIA",
+        "apellidos": "HERRERA SANCHEZ",
+        "puntos": 18750.0
+    },
+    {
+        "id": 22,
+        "ranking_malaga": 548,
+        "nombre": "REBECA",
+        "apellidos": "ALONSO GOMEZ",
+        "puntos": 25000.0
+    },
+    {
+        "id": 23,
+        "ranking_malaga": 316,
+        "nombre": "MARIA",
+        "apellidos": "BARBEDO",
+        "puntos": 46428.57
+    },
+    {
+        "id": 25,
+        "ranking_malaga": 524,
+        "nombre": "CARMEN",
+        "apellidos": "VEGA ROA",
+        "puntos": 28125.0
+    },
+    {
+        "id": 26,
+        "ranking_malaga": 745,
+        "nombre": "JENNIFER",
+        "apellidos": "HARO NAVARRO",
+        "puntos": 6250.0
+    },
+    {
+        "id": 28,
+        "ranking_malaga": 0,
+        "nombre": "CAROLINA",
+        "apellidos": "GARCIA ORTIZ",
+        "puntos": 0.0
+    },
+    {
+        "id": 36,
+        "ranking_malaga": 622,
+        "nombre": "NOELIA",
+        "apellidos": "GONZÁLEZ CABALLERO",
+        "puntos": 18750.0
+    },
+    {
+        "id": 37,
+        "ranking_malaga": 57,
+        "nombre": "SONIA",
+        "apellidos": "GÁMEZ LUQUE",
+        "puntos": 69444.44
+    }
+]
