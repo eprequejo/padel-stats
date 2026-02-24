@@ -28,11 +28,10 @@ All data comes from static JSON files in `src/assets/<season>/` (e.g., `src/asse
 
 1. Loads players and matches from DataService (per season)
 2. `calculateMetrics()` enriches each player with stats (won/lost/played), partner pair effectiveness, and the **Factor de Rendimiento (FR)** performance score
-3. FR formula: `(VP × 0.70 + P_adj × 0.30) × 5 × confianza × bonusParticipación`
-   - **VP (Victoria Ponderada):** `wonWeight / (played × 5)` [0,1] — solo victorias ponderadas por dificultad (`6 - pista`). Sin penalización por derrotas. Normalizado por máximo teórico para no penalizar jugar partidos difíciles.
-   - **P_adj (Participación ajustada):** `(played / totalMatches) × min(1, VP / 0.4)` — participation only counts fully if VP ≥ 0.4; below that, it scales down proportionally
-   - **Confianza:** `min(1, played / 3)` — minimum 3 matches for full FR
-   - **Bonus participación:** escala de ×1.0 (2 partidos o menos) a ×1.75 (todos los partidos). Premia jugar más partidos.
+3. FR formula: `(VP × 0.60 + P × 0.40) × 5 × confianza`
+   - **VP (Victoria Ponderada):** `wonWeight / (played × 3)` [0,1] — solo victorias ponderadas por dificultad. Pista 1-2 = 3 pts, Pista 3 = 2 pts, Pista 4-5 = 1 pt. Sin penalización por derrotas.
+   - **P (Participación):** `played / totalMatches` — frecuencia de juego simple
+   - **Confianza:** `min(1, played / 4)` — minimum 4 matches for full FR
 4. FR levels: Muy Alto (≥3.5, dorado), Alto (≥2.5, verde), Medio (≥1.5, amarillo), Medio-Bajo (<1.5, naranja)
 5. Players are ranked by FR and displayed in a sortable table (desktop) or card list (mobile)
 

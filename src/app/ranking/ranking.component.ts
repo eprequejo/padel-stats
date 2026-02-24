@@ -98,26 +98,17 @@ export class RankingComponent implements OnInit, OnChanges {
       };
 
       // Victoria Ponderada (VP): victorias ponderadas por dificultad [0, 1]
-      // Normalizado por el máximo teórico (played × 5) para no penalizar jugar partidos difíciles
-      const maxPossibleWeight = stats.played * 5;
+      const maxPossibleWeight = stats.played * 3;
       const vp = maxPossibleWeight > 0 ? wonWeight / maxPossibleWeight : 0;
 
       // Participación (P): frecuencia de juego [0, 1]
       const p = this.totalMatches > 0 ? stats.played / this.totalMatches : 0;
 
-      // Factor de confianza: mínimo 3 partidos para FR completo
-      const confidence = Math.min(1, stats.played / 3);
+      // Factor de confianza: mínimo 4 partidos para FR completo
+      const confidence = Math.min(1, stats.played / 4);
 
-      // Participación ajustada: solo suma si VP supera umbral mínimo (0.4)
-      const pAdjusted = p * Math.min(1, vp / 0.4);
-
-      // Bonus por participación: escala de ×1 (2 partidos o menos) a ×1.75 (todos los partidos)
-      const minMatches = 2;
-      const pClamped = Math.max(0, (stats.played - minMatches) / (this.totalMatches - minMatches));
-      const participationBonus = 1 + pClamped * 0.75;
-
-      // FR = (VP × 0.70 + P_adj × 0.30) × 5 × confianza × bonus
-      const fr = (vp * 0.70 + pAdjusted * 0.30) * 5 * confidence * participationBonus;
+      // FR = (VP × 0.60 + P × 0.40) × 5 × confianza
+      const fr = (vp * 0.60 + p * 0.40) * 5 * confidence;
 
       const levelData = this.getFRLevel(fr);
       const pairs = this.getPlayerPairsWithEffectiveness(player.id, matches, players);
@@ -220,9 +211,11 @@ export class RankingComponent implements OnInit, OnChanges {
   }
 
   // Get ponderation based on difficulty level (1 to 5)
-  // Level 1 = most difficult = weight 5, Level 5 = easiest = weight 1
+  // Pista 1-2 = 3 puntos, Pista 3 = 2 puntos, Pista 4-5 = 1 punto
   getPonderation(level: number): number {
-    return 6 - level;
+    if (level <= 2) return 3;
+    if (level === 3) return 2;
+    return 1;
   }
 
   getFRLevel(fr: number): { label: string; color: string } {
