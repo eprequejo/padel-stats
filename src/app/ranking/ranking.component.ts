@@ -25,6 +25,7 @@ export class RankingComponent implements OnInit, OnChanges {
   totalMatches: number = 0;
   teamWinRate: number = 0;
   hasData: boolean = false;
+  formula: string = 'v2';
 
   constructor(
     private dataService: DataService,
@@ -52,6 +53,7 @@ export class RankingComponent implements OnInit, OnChanges {
       matches: this.dataService.getMatches(this.season)
     }).subscribe(({ config, players, matches }) => {
       this.totalMatches = config.totalMatches;
+      this.formula = config.formula || 'v2';
       this.dataService.totalMatches = this.totalMatches;
 
       if (players.length === 0 && matches.length === 0) {
@@ -73,19 +75,21 @@ export class RankingComponent implements OnInit, OnChanges {
   }
 
   calculateMetrics(matches: Array<Match>, players: Array<Player>): Array<Player> {
+    // Para v1: calcular FR_GLOBAL_MAX y MIN
+    const frGlobalMax = this.formula === 'v1' ? this.fRGlobalV1(this.totalMatches, this.totalMatches, this.totalMatches) : 0;
+    const frGlobalMin = this.formula === 'v1' ? this.fRGlobalV1(0, this.totalMatches, this.totalMatches) : 0;
+
     return players.map(player => {
       const playerMatches = matches.filter(
         match => match.jugador_1 === player.id || match.jugador_2 === player.id
       );
 
-      let wonWeight = 0;
       let won = 0;
       let lost = 0;
 
       playerMatches.forEach(match => {
         if (match.resultado) {
           won += 1;
-          wonWeight += this.getPonderation(match.numero_partido);
         } else {
           lost += 1;
         }
@@ -97,18 +101,27 @@ export class RankingComponent implements OnInit, OnChanges {
         lost
       };
 
-      // Victoria Ponderada (VP): victorias ponderadas por dificultad [0, 1]
-      const maxPossibleWeight = stats.played * 3;
-      const vp = maxPossibleWeight > 0 ? wonWeight / maxPossibleWeight : 0;
+      let fr: number;
 
-      // Participación (P): frecuencia de juego [0, 1]
-      const p = this.totalMatches > 0 ? stats.played / this.totalMatches : 0;
+      if (this.formula === 'v1') {
+        // Fórmula v1 (24/25): IRA + Eficiencia, escalado a 0-5
+        const frRaw = this.fRGlobalV1(stats.won, stats.played, this.totalMatches);
+        fr = this.scaleFRGlobal(frRaw, frGlobalMin, frGlobalMax);
+      } else {
+        // Fórmula v2 (25/26): VP + P con pesos por pista
+        let wonWeight = 0;
+        playerMatches.forEach(match => {
+          if (match.resultado) {
+            wonWeight += this.getPonderation(match.numero_partido);
+          }
+        });
 
-      // Factor de confianza: mínimo 4 partidos para FR completo
-      const confidence = Math.min(1, stats.played / 4);
-
-      // FR = (VP × 0.70 + P × 0.30) × 5 × confianza
-      const fr = (vp * 0.70 + p * 0.30) * 5 * confidence;
+        const maxPossibleWeight = stats.played * 3;
+        const vp = maxPossibleWeight > 0 ? wonWeight / maxPossibleWeight : 0;
+        const p = this.totalMatches > 0 ? stats.played / this.totalMatches : 0;
+        const confidence = Math.min(1, stats.played / 4);
+        fr = (vp * 0.65 + p * 0.35) * 5 * confidence;
+      }
 
       const levelData = this.getFRLevel(fr);
       const pairs = this.getPlayerPairsWithEffectiveness(player.id, matches, players);
@@ -126,6 +139,26 @@ export class RankingComponent implements OnInit, OnChanges {
         }
       };
     });
+  }
+
+  // === Fórmula v1 (temporada 24/25) ===
+  private iraV1(ganados: number, jugados: number): number {
+    return jugados > 0 ? (ganados / jugados) * Math.log(jugados + 1) : 0;
+  }
+
+  private eficienciaV1(ganados: number, jugados: number, totalEnfrentamientos: number): number {
+    return jugados > 0 ? (ganados / jugados) * (Math.log10(ganados + 1) / Math.log10(totalEnfrentamientos + 1)) : 0;
+  }
+
+  private fRGlobalV1(ganados: number, jugados: number, totalEnfrentamientos: number): number {
+    const ira = this.iraV1(ganados, jugados);
+    const eficiencia = this.eficienciaV1(ganados, jugados, totalEnfrentamientos);
+    return (2 * ira + eficiencia) / 3;
+  }
+
+  private scaleFRGlobal(fr: number, min: number, max: number): number {
+    const scaled = ((fr - min) / (max - min)) * 5;
+    return Math.min(5, Math.max(0, scaled));
   }
 
   calculateTeamWinRate(matches: Array<Match>) {
@@ -219,15 +252,10 @@ export class RankingComponent implements OnInit, OnChanges {
   }
 
   getFRLevel(fr: number): { label: string; color: string } {
-    if (fr >= 3.5) {
-      return { label: 'Muy Alto', color: '#FFD700' }; // Dorado
-    } else if (fr >= 2.5) {
-      return { label: 'Alto', color: '#28a745' };     // Verde
-    } else if (fr >= 1.5) {
-      return { label: 'Medio', color: '#ffc107' };    // Amarillo
-    } else {
-      return { label: 'Medio-Bajo', color: '#fd7e14' }; // Naranja
-    }
+    if (fr >= 3.0) return { label: 'Muy Alto', color: '#FFD700' };
+    if (fr >= 2.5) return { label: 'Alto', color: '#28a745' };
+    if (fr >= 1.75) return { label: 'Medio', color: '#ffc107' };
+    return { label: 'Medio-Bajo', color: '#fd7e14' };
   }
 
   getFilteredSortedPlayers(): Player[] {
