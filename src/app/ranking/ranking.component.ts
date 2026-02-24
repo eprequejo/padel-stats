@@ -107,8 +107,8 @@ export class RankingComponent implements OnInit, OnChanges {
       // Factor de confianza: mínimo 4 partidos para FR completo
       const confidence = Math.min(1, stats.played / 4);
 
-      // FR = (VP × 0.60 + P × 0.40) × 5 × confianza
-      const fr = (vp * 0.60 + p * 0.40) * 5 * confidence;
+      // FR = (VP × 0.70 + P × 0.30) × 5 × confianza
+      const fr = (vp * 0.70 + p * 0.30) * 5 * confidence;
 
       const levelData = this.getFRLevel(fr);
       const pairs = this.getPlayerPairsWithEffectiveness(player.id, matches, players);
