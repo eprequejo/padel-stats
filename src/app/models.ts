@@ -9,6 +9,7 @@ export interface Player {
     rankingOHUPadel: number;
     effectiveness: number;
     pairs: Array<Pair>;
+    matchResults: Array<MatchResult>;
   }
 
   export interface FRGlobal {
@@ -23,10 +24,15 @@ export interface Player {
     played: number;
   }
 
-  export interface Pair { 
-    name: string; 
+  export interface Pair {
+    name: string;
     effectiveness: number;
     played: number;
+  }
+
+  export interface MatchResult {
+    pista: number;
+    won: boolean;
   }
 
   export interface Match {

@@ -329,3 +329,30 @@
   font-size: 1.1rem;
 }
 
+.match-dots {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.match-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: default;
+}
+
+.dot-won {
+  background-color: #28a745;
+}
+
+.dot-lost {
+  background-color: #dc3545;
+}
+

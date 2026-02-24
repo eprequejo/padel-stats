@@ -3,7 +3,7 @@ import { DataService } from '../data.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { Match, Pair, Player, Stats } from '../models';
+import { Match, MatchResult, Pair, Player, Stats } from '../models';
 import { SearchService } from '../search.service';
 import { forkJoin } from 'rxjs';
 
@@ -126,11 +126,16 @@ export class RankingComponent implements OnInit, OnChanges {
       const levelData = this.getFRLevel(fr);
       const pairs = this.getPlayerPairsWithEffectiveness(player.id, matches, players);
       const effectiveness = stats.played > 0 ? (stats.won / stats.played) * 100 : 0;
+      const matchResults: MatchResult[] = playerMatches.map(m => ({
+        pista: m.numero_partido,
+        won: m.resultado
+      }));
 
       return {
         ...player,
         stats,
         pairs,
+        matchResults,
         effectiveness,
         frGlobal: {
           frGlobal: fr,

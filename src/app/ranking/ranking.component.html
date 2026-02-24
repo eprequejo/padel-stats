@@ -19,6 +19,7 @@
             <th>Ganados</th>
             <th>Perdidos</th>
             <th>Jugados</th>
+            <th *ngIf="formula === 'v2'">Partidos</th>
             <th>Puntos SNP</th>
             <th>Ranking Málaga SNP</th>
             <th>Parejas</th>
@@ -59,6 +60,16 @@
             <td class="text-success fw-bold">{{ player.stats.won }}</td>
             <td class="text-danger fw-bold">{{ player.stats.lost }}</td>
             <td>{{ player.stats.played }}</td>
+            <td *ngIf="formula === 'v2'">
+              <div class="match-dots">
+                <span *ngFor="let mr of player.matchResults"
+                  class="match-dot"
+                  [ngClass]="mr.won ? 'dot-won' : 'dot-lost'"
+                  [title]="'Pista ' + mr.pista + (mr.won ? ' - Victoria' : ' - Derrota')">
+                  {{ mr.pista }}
+                </span>
+              </div>
+            </td>
             <td>{{ player.puntos }}</td>
             <td>{{ player.ranking_malaga }}</td>
             <td>
@@ -126,6 +137,19 @@
           <span>✅ <strong>Ganados:</strong> <span class="text-success fw-bold ms-1">{{ player.stats.won }}</span></span>
           <span>❌ <strong>Perdidos:</strong> <span class="text-danger fw-bold ms-1">{{ player.stats.lost }}</span></span>
           <span>🎾 <strong>Jugados:</strong> {{ player.stats.played }}</span>
+        </div>
+
+        <!-- 📌 Partidos por jornada -->
+        <div *ngIf="formula === 'v2' && player.matchResults.length > 0" class="match-results mt-2">
+          <strong class="card-text">Partidos:</strong>
+          <div class="match-dots">
+            <span *ngFor="let mr of player.matchResults"
+              class="match-dot"
+              [ngClass]="mr.won ? 'dot-won' : 'dot-lost'"
+              [title]="'Pista ' + mr.pista + (mr.won ? ' - Victoria' : ' - Derrota')">
+              {{ mr.pista }}
+            </span>
+          </div>
         </div>
 
         <!-- 📌 Puntos y Ranking -->
